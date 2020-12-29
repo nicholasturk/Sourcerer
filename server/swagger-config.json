@@ -1,0 +1,732 @@
+{
+   "openapi": "3.0.0",
+   "info": {
+      "version": "2.1.4",
+      "title": "Sourcerer"
+   },
+   "servers": [
+      {
+         "url": "http://localhost:8615/api"
+      },
+      {
+         "url": "http://mislnxnp014:8615/api"
+      }
+   ],
+   "paths": {
+      "/application-configuration/getEnvs/{app}/{branch}": {
+         "get": {
+            "summary": "Returns all of the current environments for the specified application and branch.",
+            "tags": ["Application Configuration"],
+            "parameters": [
+               {
+                  "name": "app",
+                  "in": "path",
+                  "required": false,
+                  "description": "The application shorthand (pc or bc)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "branch",
+                  "in": "path",
+                  "required": false,
+                  "description": "The branch name (HEAD.json, MAINTENANCE_LONG_TERM.json)",
+                  "schema": {
+                     "type": "String"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "An array of environments",
+                  "content": {
+                     "application/json": {
+                        "example": ["dev", "dev2", "dev3", "dev4"]
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/application-configuration/getKeys/{app}/{branch}/{choice}": {
+         "get": {
+            "summary": "Returns all of the current keys (filenames or databases) for the specified application and branch.",
+            "tags": ["Application Configuration"],
+            "parameters": [
+               {
+                  "name": "app",
+                  "in": "path",
+                  "required": false,
+                  "description": "The application shorthand (pc or bc)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "branch",
+                  "in": "path",
+                  "required": false,
+                  "description": "The branch name (HEAD.json, MAINTENANCE_LONG_TERM.json)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "choice",
+                  "in": "path",
+                  "required": false,
+                  "description": "'app' for filenames, 'config' for databases",
+                  "schema": {
+                     "type": "String"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "An array keys (filenames or databases)",
+                  "content": {
+                     "application/json": {
+                        "example": [
+                           "agencylevel.appconfig.xml",
+                           "AgencySPMImport.appconfig.xml",
+                           "appetite.appconfig.xml",
+                           "authentication.appconfig.xml",
+                           "AuthenticationServicePlugin.xml",
+                           "AuthenticationSourceCreatorPlugin.xml",
+                           "auto.conversion.appconfig.xml",
+                           "AutoGroupDiscountImport.appconfig.xml",
+                           "automatedpolicychange.appconfig.xml",
+                           "BCConfiguration.xml",
+                           "BCScreenConfiguration.xml",
+                           "bingmaps.appconfig.xml"
+                        ]
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/application-configuration/getFilesOverview/{app}/{branch}": {
+         "get": {
+            "summary": "Returns an array of all documents from the ac_file_info collection in MongoDB, used for the statistics tab of the application configuration.",
+            "tags": ["Application Configuration"],
+            "parameters": [
+               {
+                  "name": "app",
+                  "in": "path",
+                  "required": false,
+                  "description": "The application shorthand (pc or bc)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "branch",
+                  "in": "path",
+                  "required": false,
+                  "description": "The branch name (HEAD.json, MAINTENANCE_LONG_TERM.json)",
+                  "schema": {
+                     "type": "String"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "An array of all documents from the ac_file_info collection in MongoDB",
+                  "content": {
+                     "application/json": {
+                        "example": [
+                           {
+                              "_id": "5f9c2b877b685cc37503ae02",
+                              "file_name": "agencylevel.appconfig.xml",
+                              "application": "pc",
+                              "branch": "HEAD",
+                              "missing_envs": [
+                                 "demo",
+                                 "dev4qb",
+                                 "dev6",
+                                 "localtestint",
+                                 "prodqb",
+                                 "qa2",
+                                 "qa3b",
+                                 "qa3qb",
+                                 "qa6qb",
+                                 "qtp",
+                                 "sandbox",
+                                 "sit6qb",
+                                 "test",
+                                 "unittest"
+                              ],
+                              "num_envs": 30,
+                              "all_properties": ["agencylevel.basedir"],
+                              "default_properties": {
+                                 "agencylevel.basedir": "/"
+                              },
+                              "only_defaults": false
+                           },
+                           {
+                              "_id": "5f9c2b877b685cc37503ae03",
+                              "file_name": "AgencySPMImport.appconfig.xml",
+                              "application": "pc",
+                              "branch": "HEAD",
+                              "missing_envs": [
+                                 "demo",
+                                 "dev4qb",
+                                 "dev5",
+                                 "dev6",
+                                 "dev7",
+                                 "dev8",
+                                 "localtestint",
+                                 "prodqb",
+                                 "qa2",
+                                 "qa3b",
+                                 "qa3qb",
+                                 "qa5",
+                                 "qa6",
+                                 "qa6qb",
+                                 "qa8",
+                                 "qtp",
+                                 "ratedev4",
+                                 "sandbox",
+                                 "sit6qb",
+                                 "sit7",
+                                 "sit8",
+                                 "test",
+                                 "unittest"
+                              ],
+                              "num_envs": 21,
+                              "all_properties": [
+                                 "AgencySPMImport.DefaultCommercialUWLevel",
+                                 "AgencySPMImport.DefaultAutoUWLevel",
+                                 "AgencySPMImport.DefaultFarmUWLevel",
+                                 "AgencySPMImport.basedir",
+                                 "AgencySPMImport.DefaultHabUWLevel"
+                              ],
+                              "default_properties": {
+                                 "AgencySPMImport.DefaultHabUWLevel": "5",
+                                 "AgencySPMImport.DefaultAutoUWLevel": "4",
+                                 "AgencySPMImport.DefaultFarmUWLevel": "5",
+                                 "AgencySPMImport.DefaultCommercialUWLevel": "7",
+                                 "AgencySPMImport.basedir": "/"
+                              },
+                              "only_defaults": false
+                           }
+                        ]
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/application-configuration/getEnvironmentOverview/{app}/{branch}/{env}": {
+         "get": {
+            "summary": "Returns a set of useful information relating to for the specified environment on the specified application and branch.",
+            "tags": ["Application Configuration"],
+            "parameters": [
+               {
+                  "name": "app",
+                  "in": "path",
+                  "required": false,
+                  "description": "The application shorthand (pc or bc)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "branch",
+                  "in": "path",
+                  "required": false,
+                  "description": "The branch name (HEAD.json, MAINTENANCE_LONG_TERM.json)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "env",
+                  "in": "path",
+                  "required": false,
+                  "description": "The environment name (dev, dev2, prod..)",
+                  "schema": {
+                     "type": "String"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "An object of content to that environment.",
+                  "content": {
+                     "application/json": {
+                        "example": {
+                           "missingFiles": 4,
+                           "numFiles": 4,
+                           "numProps": 31,
+                           "fileNames": [
+                              "ibcvindecoder.appconfig.xml",
+                              "IRatingPlugin.xml",
+                              "messaging.appconfig.xml",
+                              "messaging.ratabaseconfig.xml"
+                           ],
+                           "fileNamesMissing": [
+                              "agencylevel.appconfig.xml",
+                              "AgencySPMImport.appconfig.xml",
+                              "appetite.appconfig.xml",
+                              "authentication.appconfig.xml"
+                           ]
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/application-configuration/getPropertiesByFileAndEnv/{app}/{branch}/{env}/{file}": {
+         "get": {
+            "summary": "Returns all properties configured to the specified environment and filename.",
+            "tags": ["Application Configuration"],
+            "parameters": [
+               {
+                  "name": "app",
+                  "in": "path",
+                  "required": false,
+                  "description": "The application shorthand (pc or bc)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "branch",
+                  "in": "path",
+                  "required": false,
+                  "description": "The branch name (HEAD.json, MAINTENANCE_LONG_TERM.json)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "env",
+                  "in": "path",
+                  "required": false,
+                  "description": "The environment name (dev, dev2, prod..)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "file",
+                  "in": "path",
+                  "required": false,
+                  "description": "The file name (agencylevel.appconfig.xml)",
+                  "schema": {
+                     "type": "String"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "An array of configured filenames associated to that environment",
+                  "content": {
+                     "application/json": {
+                        "example": {
+                           "agencylevel.basedir": "/home/cgic/pc/agent_levels"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/application-configuration/getSearchResults/{app}/{branch}/{query}/{envExclude}/{fileExclude}": {
+         "get": {
+            "summary": "Returns an object of properties with an array of environment matches.",
+            "tags": ["Application Configuration"],
+            "parameters": [
+               {
+                  "name": "app",
+                  "in": "path",
+                  "required": false,
+                  "description": "The application shorthand (pc or bc)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "branch",
+                  "in": "path",
+                  "required": false,
+                  "description": "The branch name (HEAD.json, MAINTENANCE_LONG_TERM.json)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "query",
+                  "in": "path",
+                  "required": false,
+                  "description": "A search query (can be anything)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "envExclude",
+                  "in": "path",
+                  "required": false,
+                  "description": "Exclude environment searches ('true' or 'false')",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "fileExclude",
+                  "in": "path",
+                  "required": false,
+                  "description": "Exclude file searches ('true' or 'false')",
+                  "schema": {
+                     "type": "String"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "An object of matched properties or values.",
+                  "content": {
+                     "application/json": {
+                        "example": {
+                           "type": "many",
+                           "items": {
+                              "DPRuser": [
+                                 {
+                                    "choice": {
+                                       "@env": "localdevint",
+                                       "@name": "DPRuser",
+                                       "@value": "dpr.test@cooperators.ca",
+                                       "env": "localdevint",
+                                       "file": "motorvehiclerecord.appconfig.xml"
+                                    },
+                                    "score": 55,
+                                    "key": 64113,
+                                    "foundOn": "@name"
+                                 }
+                              ]
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/application-configuration/refreshBranches": {
+         "get": {
+            "summary": "Updates the local json files from artifactory.",
+            "tags": ["Application Configuration"],
+            "responses": {
+               "200": {
+                  "description": "The console output of the wget success command and the json files were replaced with the updated ones from artifactory.",
+                  "content": {
+                     "application/json": {
+                        "example": {
+                           "agencylevel.basedir": "/home/cgic/pc/agent_levels"
+                        }
+                     }
+                  }
+               },
+               "401": {
+                  "description": "The command failed / internal server error.",
+                  "content": {
+                     "application/json": {
+                        "example": {
+                           "code": 401,
+                           "message": "Command failed"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/application-configuration/genReport": {
+         "get": {
+            "summary": "Sends an excel workbook with information about application configurations",
+            "tags": ["Application Configuration"],
+            "responses": {
+               "200": {
+                  "description": "File was send successfully.",
+                  "content": {
+                     "string": {
+                        "example": "Success"
+                     }
+                  }
+               },
+               "401": {
+                  "description": "The command failed / internal server error.",
+                  "content": {
+                     "application/json": {
+                        "example": {
+                           "code": 401,
+                           "message": "Could not send file."
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "/application-configuration/getProps": {
+         "post": {
+            "summary": "Returns all properties from the specified app/branch/key",
+            "tags": ["Application Configuration"],
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+               {
+                  "in": "body",
+                  "name": "body",
+                  "description": "Specific object to return a unique set of properties",
+                  "required": true,
+                  "schema": {
+                     "$ref": "#/definitions/getProps"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "An array properties."
+               }
+            }
+         }
+      },
+      "/application-configuration/getCompareTableData": {
+         "post": {
+            "summary": "Returns data in a nice way for vue-tables-2 to handle it on the front end. (Used only for table-builder)",
+            "tags": ["Application Configuration"],
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+               {
+                  "in": "body",
+                  "name": "body",
+                  "description": "Specific object to return the data.",
+                  "required": true,
+                  "schema": {
+                     "$ref": "#/definitions/getProps"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "An array of rows."
+               }
+            }
+         }
+      },
+      "/external-configuration/getDocument/{app}/{env}": {
+         "get": {
+            "summary": "Returns a document from the ini collection in MongoDB.",
+            "tags": ["External Configuration"],
+            "parameters": [
+               {
+                  "name": "app",
+                  "in": "path",
+                  "required": false,
+                  "description": "The application full name (policycenter, billingcenter...)",
+                  "schema": {
+                     "type": "String"
+                  }
+               },
+               {
+                  "name": "env",
+                  "in": "path",
+                  "required": false,
+                  "description": "The environment name (dev, dev2..)",
+                  "schema": {
+                     "type": "String"
+                  }
+               }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved document.",
+                  "schema": {
+                     "type": "object",
+                     "items": {
+                        "$ref": "#/definitions/getProps"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid status value"
+               }
+            }
+         }
+      },
+      "/external-configuration/getEnvs/{app}": {
+         "get": {
+            "summary": "Returns all environments found from config-ini files relating to an application.",
+            "tags": ["External Configuration"],
+            "parameters": [
+               {
+                  "name": "app",
+                  "in": "path",
+                  "required": false,
+                  "description": "The application full name (policycenter, billingcenter...)",
+                  "schema": {
+                     "type": "String"
+                  }
+               }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved a list of environments.",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/getProps"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid status value"
+               }
+            }
+         }
+      },
+      "/external-configuration/getApps": {
+         "get": {
+            "summary": "Returns a list of all applications found in config ini files.",
+            "tags": ["External Configuration"],
+            "produces": ["application/json"],
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved list.",
+                  "schema": {
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/getProps"
+                     }
+                  }
+               },
+               "400": {
+                  "description": "Invalid status value"
+               }
+            }
+         }
+      },
+      "/external-configuration/updateDocument": {
+         "post": {
+            "summary": "Replaces ini document with new object. Sourcerer front-end will maintain all the fields that weren't changed.",
+            "tags": ["External Configuration"],
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+               {
+                  "in": "body",
+                  "name": "body",
+                  "description": "Specific object to replace.",
+                  "required": true,
+                  "schema": {
+                     "$ref": "#/definitions/ini-doc"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Successfully updated document."
+               }
+            }
+         }
+      },
+      "/external-configuration/updateApplication": {
+         "post": {
+            "summary": "Updates all environments tagged to an application with a new field, or delete a pre-existing field.",
+            "tags": ["External Configuration"],
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+               {
+                  "in": "body",
+                  "name": "body",
+                  "description": "Specific object to replace.",
+                  "required": true,
+                  "schema": {
+                     "$ref": "#/definitions/ini-app"
+                  }
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Successfully updated all documents tied to the application."
+               }
+            }
+         }
+      }
+   },
+
+   "definitions": {
+      "getProps": {
+         "type": "object",
+         "required": ["app", "branch", "envs", "branches", "key", "choice"],
+         "properties": {
+            "app": {
+               "type": "string",
+               "example": "policycenter"
+            },
+            "branches": {
+               "type": "array",
+               "example": ["HEAD.json"]
+            },
+            "envs": {
+               "type": "array",
+               "example": ["dev", "dev2"]
+            },
+            "key": {
+               "type": "string",
+               "example": "agencylevel.appconfig.xml"
+            },
+            "choice": {
+               "type": "string",
+               "example": "app"
+            }
+         }
+      },
+
+      "ini-doc": {
+         "type": "object",
+         "required": [],
+         "properties": {
+            "environment": {
+               "type": "string",
+               "example": "dev"
+            },
+            "application": {
+               "type": "string",
+               "example": "pc"
+            },
+            "applicationShortname": {
+               "type": "string",
+               "example": "pc"
+            },
+            "birtApplicationName": {
+               "type": "string",
+               "example": "reports"
+            }
+         }
+      },
+      "ini-app": {
+         "type": "object",
+         "properties": {
+            "add": {
+               "type": "array",
+               "example": [{ "newProperty1": "newProperty1Value" }]
+            },
+            "rem": {
+               "type": "array",
+               "example": ["preExistingKey1ToDelete", "preExistingKey2ToDelete", "preExistingKey3ToDelete"]
+            }
+         }
+      }
+   }
+}

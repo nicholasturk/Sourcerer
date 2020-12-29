@@ -1,0 +1,8 @@
+appConfigs/
+*.json
+*.xml
+*.pyc
+__pycache__/
+*.pyc
+venv/
+csi_linuxscripts/

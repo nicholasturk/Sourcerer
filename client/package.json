@@ -1,0 +1,72 @@
+{
+  "name": "vue-sourcerer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --host localhost",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.17.0",
+    "chart.js": "^2.9.4",
+    "core-js": "^3.6.5",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "html2pdf": "0.0.11",
+    "jquery": "^3.5.1",
+    "pretty-checkbox-vue": "^1.1.9",
+    "semantic-ui-vue": "^0.11.0",
+    "vue": "^2.6.11",
+    "vue-async-computed": "^3.9.0",
+    "vue-bootstrap-slider": "^2.1.8",
+    "vue-chartjs": "^3.5.1",
+    "vue-excel-xlsx": "^1.0.11",
+    "vue-horizontal-scroll": "^0.2.4",
+    "vue-html2pdf": "^1.8.0",
+    "vue-json-tree-view": "^2.1.6",
+    "vue-multiselect": "^2.1.6",
+    "vue-navigation-bar": "^4.0.2",
+    "vue-progressbar": "^0.7.5",
+    "vue-radial-menu": "^1.1.1",
+    "vue-range-component": "^1.0.3",
+    "vue-resize-text": "^0.1.1",
+    "vue-router": "^3.4.3",
+    "vue-slider-component": "^4.0.0-beta.2",
+    "vue-tables-2": "^2.0.34",
+    "vue-underscore": "^0.1.4",
+    "vuetable-2": "^2.0.0-beta.4",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "no-unused-vars": "off"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
