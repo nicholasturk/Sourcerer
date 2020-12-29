@@ -45,7 +45,6 @@ Primary Utilities:
 -  [Python](https://www.python.org/)
 -  [PyMongo](https://pymongo.readthedocs.io/en/stable/index.html)
 -  [MongoDB](https://www.mongodb.com/)
--  [MongoDB](https://www.mongodb.com/)
 -  [SwaggerUI](https://swagger.io/tools/swagger-ui/)
 
 <!-- GETTING STARTED -->
