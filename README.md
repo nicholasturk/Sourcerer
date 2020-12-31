@@ -17,6 +17,10 @@
 
 ## About The Project
 
+This was my project for the Cooperators insurance company during my 4 month coop. I started off working on this for the first 3 months of the COOP, then built another Vue.js webapp. This project was done from scratch all by myself, with suggestions
+and feedback from my co workers who use the app. It is now deployed live on the servers at the company and has an assosiated Jenkins job that runs everynight to read and write data.
+
+
 Sourcerer is a web application that is designed primarily for viewing information from Guidewire Configuration in an easy manner. This includes Policy Center and Billing Center **appconfig.xml**, **plugin.xml** and **config.xml** files. Sourcerer offers the ability to compare files from different branches.
 
 This application also sources information from config.ini (External Configurations). It has the ability to perform CRUD operations on these items, but is not currently in use.
