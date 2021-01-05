@@ -2,7 +2,7 @@ var collections = {};
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 
-MongoClient.connect("mongodb://mislnxnp014:27017/:27017?readPreference=primary&appname=MongoDB%20Compass&ssl=false", {
+MongoClient.connect("DB String", {
    useUnifiedTopology: true,
 })
    .then((client) => {
