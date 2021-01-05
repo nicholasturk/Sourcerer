@@ -53,7 +53,7 @@ exports.getBranchNames = (req, res) => {
 // This doesn't work very well locally for some reason, sometimes you have to type this command into the terminal while in the sourcerer-server directory for it to work
 exports.refreshBranches = (req, res) => {
    exec(
-      `wget http://csiartifactory.cgic.ca/artifactory/gradle-dev-local/HEAD/ca/cooperators/utilities/sourcerer/PC/latest/HEAD.json -O branches/pc/HEAD.json && wget http://csiartifactory.cgic.ca/artifactory/gradle-dev-local/MAINTENANCE_LONG_TERM/ca/cooperators/utilities/sourcerer/PC/latest/MAINTENANCE_LONG_TERM.json -O branches/pc/MAINTENANCE_LONG_TERM.json && wget http://csiartifactory.cgic.ca/artifactory/gradle-dev-local/MAINTENANCE_LONG_TERM/ca/cooperators/utilities/sourcerer/BC/latest/MAINTENANCE_LONG_TERM.json -O branches/bc/MAINTENANCE_LONG_TERM.json && wget http://csiartifactory.cgic.ca/artifactory/gradle-dev-local/HEAD/ca/cooperators/utilities/sourcerer/BC/latest/HEAD.json -O branches/bc/HEAD.json`,
+      'CONFIDENTIAL COMMAND!',
       (error, stdout, stderr) => {
          if (error) {
             res.send(error.message);

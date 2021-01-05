@@ -6,7 +6,7 @@ Most calls are make through store.js in the form of actions because they mutate 
 See API DOCS on front end to figure out what these calls do
 */
 
-const url = "http://mislnxnp014:8615";
+const url = "http://localhost:8615";
 const appConfigRoute = `${url}/api/application-configuration`;
 const externalConfigRoute = `${url}/api/external-configuration`;
 const profileViewRoute = `${url}/api/profile-view`;
@@ -83,14 +83,14 @@ class PostService {
          try {
             const res = await axios.get(
                appConfigRoute +
-                  "/getSearchResults/" +
-                  opts.app +
-                  "/" +
-                  opts.branch +
-                  "/" +
-                  opts.query +
-                  "/" +
-                  opts.precision
+               "/getSearchResults/" +
+               opts.app +
+               "/" +
+               opts.branch +
+               "/" +
+               opts.query +
+               "/" +
+               opts.precision
             );
             resolve(res.data);
          } catch (err) {
